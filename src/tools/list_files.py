@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Type
+import os
 
 from src.models.state import State
 from src.models.tool import Tool
@@ -15,5 +16,9 @@ class ListFiles(Tool):
     args_type: Type[BaseModel] = _Args
 
     def _run(self, state: State, args: _Args) -> str:
-        # raise AppError("dummy error")  # testing errors
-        return args.text  # testing success
+        directory = "/Home/Desktop/Maya"
+        try:
+            os.listdir(directory)
+            return "\n".join(ListFiles)
+        except Exception as _args:
+            return str(_Args)
