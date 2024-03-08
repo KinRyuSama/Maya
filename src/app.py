@@ -23,5 +23,5 @@ def run(prompt: str):
 
 if __name__ == "__main__":
     while True:
-        prompt = input("> ")
+        prompt = input(" RE4P3R > ")
         run(prompt)
