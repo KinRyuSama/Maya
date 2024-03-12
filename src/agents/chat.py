@@ -47,6 +47,16 @@ class StepOutput:
 @dataclass
 class ChatAgent:
     def on_message(self, state: State, prompt: str) -> AgentResult:
+        if len(state.history) == 0:
+            print(colored("---\nTools:", "yellow"))
+            print(
+                colored(
+                    "\n".join([json.dumps(t.as_gpt(), indent=2) for t in list_tools()]),
+                    "yellow",
+                )
+            )
+            print(colored("---", "yellow"))
+
         print(colored(self._system_prompt(), "yellow"))
 
         prompt_message = {"role": "user", "content": prompt}
