@@ -6,8 +6,7 @@ from src.models.tool import Tool
 
 
 class _Args(BaseModel):
-    text: str
-    file_path: str
+    filepath: str
 
 
 class ReadFile(Tool):
@@ -17,9 +16,9 @@ class ReadFile(Tool):
 
     def _run(self, state: State, args: _Args) -> str:
         try:
-            with open(args.file_path, "r") as file:
+            with open(args.filepath, "r") as file:
                 file_contents = file.read()
             return file_contents
         except Exception as e:
-            print(f"Error reading file {args.file_path}: {e}")
-            return None
+            print(f"Error reading file {args.filepath}: {e}")
+            return "Error file not found"

@@ -2,6 +2,7 @@ AI Bot Sandbox
 ==============
 
 - [ ] Create `list_files` tool that lists files in a directory (recursively).
+    update ignore
 - [ ] Create `read_file` tool that reads the content of a file.
 - [ ] Create `update_file` tool that:
     - Takes arguments "path: str" and "changes: str".

@@ -10,7 +10,7 @@ class _Args(BaseModel):
 
 
 class UpdateFile(Tool):
-    name: str = "UpdateFile"
+    name: str = "update_file"
     description: str = "Used to test that tools work correctly."
     args_type: Type[BaseModel] = _Args
 

@@ -5,9 +5,15 @@ import os
 from src.models.state import State
 from src.models.tool import Tool
 
+IGNORED = [
+    ".git/",
+    ".vscode/",
+    "__pycache__/",
+]
+
 
 class _Args(BaseModel):
-    text: str
+    pass
 
 
 class ListFiles(Tool):
@@ -22,10 +28,13 @@ class ListFiles(Tool):
         try:
             for root, _, files in os.walk(directory):
                 for file in files:
-                    file_path = os.path.join(
-                        root, file
-                    )  # Combine directory and file name
-                    all_files.append(file_path)  # Add the file path to the list
+                    absolute_path = os.path.join(root, file)
+                    relative_path = os.path.relpath(absolute_path, directory)
+                    # if relative_path contains anything from IGNORED, skipnit!
+                    if any(pattern in relative_path for pattern in IGNORED):
+                        continue
+                    else:
+                        all_files.append(relative_path)
             return "\n".join(
                 all_files
             )  # Return the list of files as a newline-separated string
