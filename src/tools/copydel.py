@@ -27,17 +27,15 @@ class Copydel(Tool):
         return f"Successfully {args.action}ed file {args.file_name}"
 
     def _create_file(self, file_name: str):
-        file_name = "test 2"
-
         if not os.path.exists(file_name):
             # os.makedirs(file_name)
-            pass  # TODO DELETE THE FILE
+            open(file_name, "w").close()
         else:
             raise FileExistsError(f"File {file_name} already exists.")
 
     def _delete_file(self, file_name: str):
         if os.path.exists(file_name):
             # os.rmdir(file_name)
-            pass  # TODO DELETE THE FILE
+            os.remove(file_name)
         else:
             raise FileNotFoundError(f"File {file_name} not found.")
