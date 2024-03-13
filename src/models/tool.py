@@ -51,4 +51,4 @@ class Tool(BaseModel):
 
     def _run(self, state: State, args: Any) -> str:
         # Tip: replace `args: Any` by `args: _Args`
-        raise NotImplementedError("Tool#_arun must be implemented by subclass.")
+        raise NotImplementedError("Tool#_run must be implemented by subclass.")
