@@ -1,5 +1,8 @@
+beautifulsoup4==4.12.3
 openai==0.28.1
 pydantic==1.10.12
+pytest==1.2.0
 python-dotenv==1.0.0
+requests==2.31.0
 termcolor==2.4.0
 tiktoken==0.6.0
