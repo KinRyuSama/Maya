@@ -12,7 +12,7 @@ class _Args(BaseModel):
     action: Literal["create", "delete"]
 
 
-class Copydel(Tool):
+class Create_Delete(Tool):
     name: str = "copydel"
     description: str = "create and delete files in folder"
     args_type: Type[BaseModel] = _Args

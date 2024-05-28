@@ -12,8 +12,8 @@ class _Args(BaseModel):
     action: Literal["create", "delete"]  # added action attribute
 
 
-class ManFolders(Tool):
-    name: str = "man_folders"
+class ManageFolders(Tool):
+    name: str = "manage_folders"
     description: str = "Used to manage folders."
     args_type: Type[_Args] = _Args
 
