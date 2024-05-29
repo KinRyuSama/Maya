@@ -13,8 +13,8 @@ class _Args(BaseModel):
 
 
 class Create_Delete(Tool):
-    name: str = "copydel"
-    description: str = "create and delete files in folder"
+    name: str = "Create_Delete"
+    description: str = "Create and Delete files in folder"
     args_type: Type[BaseModel] = _Args
 
     def _run(self, state: State, args: _Args) -> str:
