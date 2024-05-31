@@ -64,7 +64,7 @@ class Completion(BaseModel):
 def get_completion(
     messages: list[dict[str, Any]],
     max_tokens: int = 1000,
-    model: Literal["gpt-3.5-turbo", "gpt-4"] = "gpt-3.5-turbo",
+    model: Literal["gpt-4o"] = "gpt-4o",
     temperature: float = 0.0,
     tools: list[dict[str, Any]] = [],  # Tool.as_gpt() output
     force_final_answer: bool = False,
