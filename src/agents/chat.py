@@ -151,8 +151,8 @@ You are a useful assistant.
 
         completion = get_completion(
             messages=[{"role": "system", "content": system}, *memory],
-            max_tokens=1000,
-            model="gpt-3.5-turbo",
+            max_tokens=4096,
+            model="gpt-4o",
             temperature=0.4,
             tools=gpt_tools,
             force_final_answer=force_final_answer,

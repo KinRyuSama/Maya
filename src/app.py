@@ -18,7 +18,7 @@ def run(prompt: str):
 
     else:
         result = ChatAgent().on_message(state, prompt)
-        print(colored(result.content, "green"))
+        print(colored(result.content, "magenta"))
 
 
 if __name__ == "__main__":

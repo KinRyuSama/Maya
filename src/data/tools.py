@@ -7,6 +7,7 @@ from src.tools.list_files import ListFiles
 from src.tools.manage_folders import ManageFolders
 from src.tools.read_file import ReadFile
 from src.tools.update_file import UpdateFile
+from src.tools.parser import Parser
 
 
 @cache
@@ -18,4 +19,5 @@ def list_tools() -> list[Tool]:
         ManageFolders(),
         ReadFile(),
         UpdateFile(),
+        Parser(),
     ]
