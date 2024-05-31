@@ -9,21 +9,19 @@ import os
 
 class _Args(BaseModel):
     text: str
-    action: Literal["create", "delete"]  # added action attribute
+    action: Literal["create"]  # added action attribute
 
 
-class ManageFolders(Tool):
-    name: str = "manage_folders"
-    description: str = "Used to manage folders."
+class CreateFolder(Tool):
+    name: str = "create_folder"
+    description: str = "Used to create folders."
     args_type: Type[_Args] = _Args
 
     def _run(self, state: State, args: _Args) -> str:
         if args.action == "create":
             self._create_folder(args.text)
-        elif args.action == "delete":
-            self._delete_folder(args.text)
         else:
-            raise ValueError("Invalid action specified. Must be 'create' or 'delete'.")
+            raise ValueError("Invalid action specified. Must be 'create'.")
         return f"Successfully {args.action}ed folder {args.text}"
 
     def _create_folder(self, folder_name: str):
@@ -31,9 +29,3 @@ class ManageFolders(Tool):
             os.makedirs(folder_name)
         else:
             raise FileExistsError(f"Folder {folder_name} already exists.")
-
-    def _delete_folder(self, folder_name: str):
-        if os.path.exists(folder_name):
-            os.rmdir(folder_name)
-        else:
-            raise FileNotFoundError(f"Folder {folder_name} not found.")

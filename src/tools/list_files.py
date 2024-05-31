@@ -9,6 +9,14 @@ IGNORED = [
     ".git/",
     ".vscode/",
     "__pycache__/",
+    ".venv/",
+    "src/",
+    "README.md",
+    ".gitignore",
+    ".pytest_cache/",
+    "requirements.txt",
+    ".gitignore",
+    ".env",
 ]
 
 
@@ -22,7 +30,9 @@ class ListFiles(Tool):
     args_type: Type[BaseModel] = _Args
 
     def _run(self, state: State, args: _Args) -> str:
-        directory = "/home/nathan/Desktop/Maya"  # Ensure this path is correct and case-sensitive
+        directory = (
+            "/home/nate/Desktop/Maya"  # Ensure this path is correct and case-sensitive
+        )
         all_files = []  # Initialize the list to store file paths
 
         try:
