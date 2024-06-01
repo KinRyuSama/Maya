@@ -23,5 +23,5 @@ def run(prompt: str):
 
 if __name__ == "__main__":
     while True:
-        prompt = input(" RE4P3R > ")
+        prompt = input(" To Maya >> ")
         run(prompt)
